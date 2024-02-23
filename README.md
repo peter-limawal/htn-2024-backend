@@ -1,5 +1,10 @@
 # Hack the North 2024 Backend Challenge - Peter Limawal
 
+## Preface
+I completely forgot about the OA until today. My bad y'all :(
+
+## API Documentation
+
 To run the server, ensure you have flask installed,
 ```
 pip3 install flask
