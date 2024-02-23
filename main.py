@@ -63,6 +63,23 @@ def get_user(email):
     hacker.append(c.fetchall())
     return jsonify(hacker), 200
 
+# Updating User Data Endpoint
+# nvm it doesn't work
+@app.route("/put/hackers/<email>", methods=['PUT'])
+def update_user(email):
+    name = request.args.get(name) 
+    company = request.args.get(company)
+    phone = request.args.get(phone)
+
+    if name:
+        c.execute("UPDATE hackers SET name=:name WHERE email=:email", {'name': name, 'email': email})
+    if company:
+        c.execute("UPDATE hackers SET company=:company WHERE email=:email", {'company': company, 'email': email})
+    if phone:
+        c.execute("UPDATE hackers SET phone=:phone WHERE email=:email", {'phone': phone, 'email': email})
+
+    get_user(email)
+
 # Skills Endpoints
 @app.route("/get/skills/frequencies", methods=['GET'])
 def get_skills():
